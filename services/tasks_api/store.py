@@ -8,7 +8,7 @@ from models import Task, TaskStatus
 
 
 class TaskStore:
-    def __init__(self, table_name, dynamodb_url):
+    def __init__(self, table_name, dynamodb_url=None):
         self.table_name = table_name
         self.dynamodb_url = dynamodb_url
 
