@@ -9,6 +9,7 @@ from main import app
 from models import Task, TaskStatus
 from store import TaskStore
 
+
 @pytest.fixture
 def client():
     return TestClient(app)
@@ -45,19 +46,13 @@ def dynamodb_table():
             BillingMode="PAY_PER_REQUEST",
             GlobalSecondaryIndexes=[
                 {
-                    'IndexName': 'GS1',
-                    'KeySchema': [
-                        {
-                            'AttributeName': 'GS1PK',
-                            'KeyType': 'HASH'
-                        },
-                        {
-                            'AttributeName': 'GS1SK',
-                            'KeyType': 'RANGE'
-                        },
+                    "IndexName": "GS1",
+                    "KeySchema": [
+                        {"AttributeName": "GS1PK", "KeyType": "HASH"},
+                        {"AttributeName": "GS1SK", "KeyType": "RANGE"},
                     ],
-                    'Projection': {
-                        'ProjectionType': 'ALL',
+                    "Projection": {
+                        "ProjectionType": "ALL",
                     },
                 },
             ],
@@ -77,7 +72,9 @@ def test_added_task_retrieved_by_id(dynamodb_table):
 def test_open_tasks_listed(dynamodb_table):
     repository = TaskStore(table_name=dynamodb_table)
     open_task = Task.create(uuid.uuid4(), "Clean your office", "john@doe.com")
-    closed_task = Task(uuid.uuid4(), "Clean your office", TaskStatus.CLOSED, "john@doe.com")
+    closed_task = Task(
+        uuid.uuid4(), "Clean your office", TaskStatus.CLOSED, "john@doe.com"
+    )
 
     repository.add(open_task)
     repository.add(closed_task)
@@ -88,7 +85,9 @@ def test_open_tasks_listed(dynamodb_table):
 def test_closed_tasks_listed(dynamodb_table):
     repository = TaskStore(table_name=dynamodb_table)
     open_task = Task.create(uuid.uuid4(), "Clean your office", "john@doe.com")
-    closed_task = Task(uuid.uuid4(), "Clean your office", TaskStatus.CLOSED, "john@doe.com")
+    closed_task = Task(
+        uuid.uuid4(), "Clean your office", TaskStatus.CLOSED, "john@doe.com"
+    )
 
     repository.add(open_task)
     repository.add(closed_task)
