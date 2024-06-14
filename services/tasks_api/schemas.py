@@ -1,7 +1,9 @@
-from uuid import UUID
-from pydantic import BaseModel
-from models import TaskStatus
 from typing import List
+from uuid import UUID
+
+from pydantic import BaseModel
+
+from models import TaskStatus
 
 
 class CreateTask(BaseModel):
