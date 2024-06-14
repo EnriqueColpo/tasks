@@ -34,7 +34,7 @@ Resources:
             Resource:
               Fn::Join:
                 - '/'
-                - - Fn::ImportValue: s3-development-tasks-api-arn
+                - - Fn::ImportValue: s3-development-tasks-api-ui-arn
                   - '*'
   APICachePolicy:  # new
     Type: AWS::CloudFront::CachePolicy
