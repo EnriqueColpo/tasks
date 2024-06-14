@@ -131,7 +131,7 @@ Resources:
             TargetOriginId: api
             ViewerProtocolPolicy: redirect-to-https
         ViewerCertificate:
-          AcmCertificateArn: <arn-of-https-certificate-you-created-in-previous-step>
+          AcmCertificateArn: arn:aws:acm:us-east-1:794415756724:certificate/a1739928-38e4-4364-8818-154197190cf9
           SslSupportMethod: sni-only
           MinimumProtocolVersion: TLSv1.2_2021
   CloudFrontDNSRecord:  # new
