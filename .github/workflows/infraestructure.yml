@@ -1,9 +1,11 @@
 name: Apply infrastructure changes
 on:
   push:
-    paths:
-      - 'infrastructure/**'
-      - '.github/workflows/infrastructure.yml'
+    branches:
+        - main
+    # paths:
+    #   - 'infrastructure/**'
+    #   - '.github/workflows/infrastructure.yml'
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

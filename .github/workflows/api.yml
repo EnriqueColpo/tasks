@@ -1,9 +1,11 @@
 name: API Test and deploy
 on:
   push:
-    paths:
-      - 'services/tasks_api/**'
-      - '.github/workflows/api.yml'
+    branches:
+      - main
+    # paths:
+    #   - 'services/tasks_api/**'
+    #   - '.github/workflows/api.yml'
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
