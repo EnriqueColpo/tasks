@@ -78,7 +78,12 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-          - DomainName: development-tasks-api-ui.s3.eu-west-1.amazonaws.com
+          
+          - DomainName:
+              Fn::Join:
+                - '.'
+                - - Fn::ImportValue: s3-development-tasks-api-ui-name
+                  - 's3.amazonaws.com'
             Id: vueApp
             S3OriginConfig:
               OriginAccessIdentity:
@@ -87,7 +92,8 @@ Resources:
                       -
                         - 'origin-access-identity/cloudfront/'
                         - Ref: CloudFrontOriginAccessIdentity
-          - DomainName: ekxbo3sda2.execute-api.eu-west-1.amazonaws.com
+          
+          - DomainName: vlv4n0jvfd.execute-api.eu-west-1.amazonaws.com
             Id: api
             OriginPath: /development
             CustomOriginConfig:
@@ -125,7 +131,7 @@ Resources:
             TargetOriginId: api
             ViewerProtocolPolicy: redirect-to-https
         ViewerCertificate:
-          AcmCertificateArn: arn:aws:acm:us-east-1:794415756724:certificate/a1739928-38e4-4364-8818-154197190cf9
+          AcmCertificateArn: <arn-of-https-certificate-you-created-in-previous-step>
           SslSupportMethod: sni-only
           MinimumProtocolVersion: TLSv1.2_2021
   CloudFrontDNSRecord:  # new
