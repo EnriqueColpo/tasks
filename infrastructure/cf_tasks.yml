@@ -78,7 +78,7 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-          - DomainName: https://development-tasks-api-ui.s3.eu-west-1.amazonaws.com
+          - DomainName: development-tasks-api-ui.s3.eu-west-1.amazonaws.com
             Id: vueApp
             S3OriginConfig:
               OriginAccessIdentity:
@@ -87,7 +87,7 @@ Resources:
                       -
                         - 'origin-access-identity/cloudfront/'
                         - Ref: CloudFrontOriginAccessIdentity
-          - DomainName: https://ekxbo3sda2.execute-api.eu-west-1.amazonaws.com
+          - DomainName: ekxbo3sda2.execute-api.eu-west-1.amazonaws.com
             Id: api
             OriginPath: /development
             CustomOriginConfig:
