@@ -74,7 +74,7 @@ def close_task(
     task = task_store.get_by_id(task_id=parameters.id, owner=user_email)
     task.close()
     task_store.add(task)
-
+    print("test")
     return task
 
 
