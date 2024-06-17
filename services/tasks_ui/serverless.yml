@@ -38,23 +38,7 @@ resources:
         WebsiteConfiguration:
           IndexDocument: index.html
           ErrorDocument: error.html
-    TasksAPIBucketPolicy:
-      Type: AWS::S3::BucketPolicy
-      Properties:
-        Bucket: !Ref TasksAPIBucket
-        PolicyDocument:
-          Version: "2012-10-17"
-          Statement:
-            - Sid: "PublicReadGetObject"
-              Effect: "Allow"
-              Principal: "*"
-              Action: "s3:GetObject"
-              Resource:
-                Fn::Join:
-                  - ""
-                  - - "arn:aws:s3:::"
-                    - !Ref TasksAPIBucket
-                    - "/*"
+
   Outputs:
     TasksAPIBucketName:
       Value: !Ref TasksAPIBucket
