@@ -91,7 +91,7 @@ Resources:
                       -
                         - 'origin-access-identity/cloudfront/'
                         - Ref: CloudFrontOriginAccessIdentity
-          - DomainName: switchshop.world
+          - DomainName: https://k3gtwkhlld.execute-api.eu-west-1.amazonaws.com
             Id: api
             OriginPath: /development
             CustomOriginConfig:
