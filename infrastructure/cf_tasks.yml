@@ -91,7 +91,7 @@ Resources:
                       -
                         - 'origin-access-identity/cloudfront/'
                         - Ref: CloudFrontOriginAccessIdentity
-          - DomainName: https://k3gtwkhlld.execute-api.eu-west-1.amazonaws.com
+          - DomainName: k3gtwkhlld.execute-api.eu-west-1.amazonaws.com
             Id: api
             OriginPath: /development
             CustomOriginConfig:
