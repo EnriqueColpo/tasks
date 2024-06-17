@@ -12,7 +12,6 @@ from models import Task
 from schemas import APITask, APITaskList, CloseTask, CreateTask
 from store import TaskStore
 
-
 app = FastAPI()
 
 
