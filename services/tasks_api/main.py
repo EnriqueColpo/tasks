@@ -13,12 +13,13 @@ from models import Task
 from schemas import APITask, APITaskList, CloseTask, CreateTask
 from store import TaskStore
 
+
 app = FastAPI()
 
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("ALLOWED_ORIGINS")],
+    allow_origins="*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
